@@ -1,0 +1,99 @@
+<div class="starter-template">
+    <img src="{{ url_for('static', filename='img/bvs.png') }}" width="100%" />
+    <br /><br />
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-danger progress-bar-striped active" style="width: {{ total[0] }}%">
+            <span class="sr-only">{{ total[0] }}% A</span>
+        </div>
+        <div class="progress-bar progress-bar-striped active" style="width: {{ total[1] }}%">
+            <span class="sr-only">{{ total[1] }}% B</span>
+        </div>
+
+    </div>
+    <div class="col-xs-12">
+        <div id="loading"></div>
+        <section id="cloud"></section>
+    </div>
+
+    <br/>
+
+    <div class="col-xs-12" align="center">
+        <div style="font-size: 17px;">
+            {% for bt in bigram_trigram %}
+            <span class="label label-default">{{ bt.text }}</span>
+            {% endfor %}
+        </div>
+        <br /><br/>
+    </div>
+
+
+
+
+    <div class="col-xs-3">
+        <ul class="list-group">
+            <li class="list-group-item active">
+                Top 10 Hashtags
+            </li>
+            {% for hashtag in hashtags %}
+
+            <li class="list-group-item">
+                <span class="badge">{{ hashtag.frequencia }}</span>
+                {{ hashtag.hashtag }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-xs-3">
+        <ul class="list-group">
+            <li class="list-group-item active">
+                Top 10 Termos
+            </li>
+            {% for termo in termos %}
+
+            <li class="list-group-item">
+                <span class="badge">{{ termo.frequencia }}</span>
+                {{ termo.termo }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-xs-3">
+        <ul class="list-group">
+            <li class="list-group-item active">
+                Top 10 Usuários
+            </li>
+            {% for usuario in usuarios %}
+
+            <li class="list-group-item">
+                <span class="badge">{{ usuario.frequencia }}</span>
+                {{ usuario.usuario }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-xs-3">
+        <ul class="list-group">
+            <li class="list-group-item active">
+                Top 10 Usuários Citados
+            </li>
+            {% for usuario in usuarios_citados %}
+
+            <li class="list-group-item">
+                <span class="badge">{{ usuario.frequencia }}</span>
+                {{ usuario.usuario }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-xs-12" align="center">
+        <section id="graph"></section>
+    </div>
+
+</div>
+
+<div align="center"><small>Desenvolvido por <a href="http://www.twitter.com/data2learning" target="_blank">@data2learning</a></small></div>
