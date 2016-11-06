@@ -1,11 +1,6 @@
 # Minicursos Data2Learning
 ## O que o twitter está pensando? Extraindo informações em redes sociais utilizando Python.
 
-### Configuração do ambiente de trabalho
+Detalhes de configuração do ambiente e do material disponível estão no site:
 
-Criar um app no dev.twitter.com/apps
-Criar uma conta no site pythonanywhere.com
-
-No site PythonAnyWhere instalar: 
-
-twython: pip install twython
+[http://www.data2learning.com/minicurso-o-que-o-twitter-esta-pensando/](http://www.data2learning.com/minicurso-o-que-o-twitter-esta-pensando/)
