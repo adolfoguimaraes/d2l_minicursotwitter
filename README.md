@@ -35,7 +35,7 @@ O projeto utiliza python versão 2.x (Uma atualização para versão 3.x está s
 
 Para usar a API do Twitter é preciso se cadastrar em [apps.twitter.com](http://apps.twitter.com) e criar um App para obter 
 as credenciais: Keys e Tokens. As credenciais utilizadas neste código foram desativadas. Uma breve explicação de como obter tais credenciais
-pode se encontrada [aqui](http://www.data2learning.com/minicurso-o-que-o-twitter-esta-pensando/).
+pode ser encontrada [aqui](http://www.data2learning.com/minicurso-o-que-o-twitter-esta-pensando/).
 
 ### Projeto Web
 
