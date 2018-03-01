@@ -26,10 +26,11 @@ from models import AllTweets
 from database import db_session
 
 # Access app.twitter.com and generate own credentials account.
-consumer_key = "EhjkX3eL1KN2pitOt4PRRDuuo"
-consumer_secret = "MCfsfrFD2NFC7vCxYon41ukxOuCSAvauskmxIA4aCW7P9txKV1"
-access_token = "736392442384154624-YjF2w3SVj4wXKV2qWYgQKQsHBDz1CSz"
-access_token_secret = "hJiihk0r7efTOoCjCX0qbMW0zl298LumPpC69jAgvZubm"
+#Definição das chaves da API do Twitter
+consumer_key = None # Get Keys and Access Token at apps.twitter.com
+consumer_secret = None # Get Keys and Access Token at apps.twitter.com
+access_token = None # Get Keys and Access Token at apps.twitter.com
+access_token_secret = None # Get Keys and Access Token at apps.twitter.com
 
 tw = Twython(consumer_key, consumer_secret, access_token, access_token_secret)
 

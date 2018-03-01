@@ -3,10 +3,10 @@
 from streamingtwitter import MyStreamer
 
 #Em seguida setamos as chaves da API do Twitter
-APP_KEY = "0rBTp9a35qIvA5ufGpxPGNkWu"
-APP_SECRET = "rGStqnwrDjuzo1zwnXjpPlrilvDmvNljhRh6cTs1pG48K6ZLG6"
-OAUTH_TOKEN = "736392442384154624-blYbsB4awwSezrNUH7L5jTG6JPglJy3"
-OAUTH_TOKEN_SECRET = "bvPr7Y8BQeyN46UKZtDJPyP0Bx4Y8IuDRDVYxsc3LNAlb"
+APP_KEY = None # Get Keys and Access Token at apps.twitter.com
+APP_SECRET = None # Get Keys and Access Token at apps.twitter.com
+OAUTH_TOKEN = None # Get Keys and Access Token at apps.twitter.com
+OAUTH_TOKEN_SECRET = None # Get Keys and Access Token at apps.twitter.com
 
 #E criamos nossa instância do coletor
 stream = MyStreamer(APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
