@@ -1,8 +1,9 @@
+import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-import os
 parent_dir_name = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 engine = create_engine('sqlite:///' + parent_dir_name + '/db/files/database.db', convert_unicode=True)
@@ -11,6 +12,7 @@ db_session = scoped_session(sessionmaker(autocommit=False,
                                          bind=engine))
 Base = declarative_base()
 Base.query = db_session.query_property()
+
 
 def init_db():
     # import all modules here that might define models so that

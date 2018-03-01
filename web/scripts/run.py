@@ -40,11 +40,11 @@ def start(context_, collect_=False, query_=None):
 
      # Insert in database
     print("Populating database")
-    #populate_database(bigrams, frequency_hashtags, frequency_terms, frequency_users, frequency_users_cited, trigrams)
+    populate_database(bigrams, frequency_hashtags, frequency_terms, frequency_users, frequency_users_cited, trigrams)
 
     #Hashtags Graph
     print("Generating Hashtag count by date")
-    #hashtag_graph(context_)
+    hashtag_graph(context_)
 
 
 def hashtag_graph(context_):
@@ -80,11 +80,6 @@ def hashtag_graph(context_):
         db_session.add(new_data)
 
         db_session.commit()
-
-
-
-
-
 
 
 def populate_database(bigrams, frequency_hashtags, frequency_terms, frequency_users, frequency_users_cited, trigrams):
