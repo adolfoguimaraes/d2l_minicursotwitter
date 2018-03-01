@@ -49,6 +49,10 @@ Após coletar os tweets é preciso gerar os dados processados. Para isto execute
 
 Para executar o servidor web com a página, use: `python flask_app.py` no diretório raiz. 
 
+A página a seguir deve ser visualizada:
+
+![screen_capture](http://adolfo.data2learning.com/screen_capture_d2l.png)
+
 **O projeto foi criado há 2 anos e estou melhorando algumas coisas. Qualquer dúvida e sugestões é só entrar em contato:**
 
 [adolfo@data2learning.com](mailto:adolfo@data2learning.com) ou [@profadolfoguimaraes](www.instagram.com/profadolfoguimaraes) (instagram) 
