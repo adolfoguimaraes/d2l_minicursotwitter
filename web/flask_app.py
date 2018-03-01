@@ -1,9 +1,10 @@
 from flask import Flask, jsonify
 from flask import render_template
 from db.database import db_session
-from db.models import Usuarios, Termos, Hashtags, UsuariosCitados, BigramTrigram
+from db.models import Usuarios, Termos, Hashtags, HashtagsGraph, UsuariosCitados, BigramTrigram
 
 app = Flask(__name__)
+
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):
@@ -28,20 +29,42 @@ def home():
 
     termos, hashtags, usuarios, usuarios_citados, bigram_trigram = load_from_db(10)
 
-    query_A = Hashtags.query.filter_by(hashtag="#teamsuperman").first()
-    query_B = Hashtags.query.filter_by(hashtag="#teambatman").first()
+    query_a = Hashtags.query.filter_by(hashtag="#teamsuperman").first()
+    query_b = Hashtags.query.filter_by(hashtag="#teambatman").first()
 
-    total_A = float(query_A.frequencia)
-    total_B = float(query_B.frequencia)
+    total_a = 0
+    total_b = 0
+    percent_a = 0
+    percent_b = 0
+    total = 0
 
-    total = total_A + total_B
+    if query_a and query_b:
+        total_a = float(query_a.frequencia)
+        total_b = float(query_b.frequencia)
 
-    percent_A = (total_A / total) * 100
-    percent_B = (total_B / total) * 100
+        total = total_a + total_b
 
-    print total, total_A, total_B, percent_A, percent_B
+        percent_a = (total_a / total) * 100
+        percent_b = (total_b / total) * 100
 
-    return render_template("index.html",termos=termos,hashtags=hashtags,usuarios=usuarios,usuarios_citados=usuarios_citados, total=(percent_A, percent_B), bigram_trigram=bigram_trigram, context=context)
+    return render_template("index.html",termos=termos,hashtags=hashtags,usuarios=usuarios,usuarios_citados=usuarios_citados, total=(percent_a, percent_b), bigram_trigram=bigram_trigram, context=context)
+
+
+@app.route("/graph/")
+def graph():
+
+    query_hashtag = HashtagsGraph.query.filter_by(context="bvs").all()
+    all_ = []
+    for q in query_hashtag:
+        date_ = str(q.date).split(" ")[0]
+        t = {}
+        t['date'] = date_
+        t['count'] = q.frequencia
+        t['hashtag'] = q.hashtag
+        all_.append(t)
+
+    return jsonify(**{'list': all_})
+
 
 @app.route("/cloud/")
 def cloud():

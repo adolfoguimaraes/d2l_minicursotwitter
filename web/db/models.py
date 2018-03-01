@@ -1,9 +1,10 @@
 from sqlalchemy import Column, Integer, String, Text, BIGINT, DATETIME
-from db.database import Base
+from database import Base
 
 
-class Tweets(Base):
-    __tablename__ = "Tweets"
+class AllTweets(Base):
+
+    __tablename__ = "AllTweets"
 
     id = Column(Integer, primary_key=True,autoincrement=True)
     tweet_id = Column(String, unique=True)
@@ -13,13 +14,14 @@ class Tweets(Base):
     user_image = Column(Text)
     context = Column(Text)
 
-    def __init__(self,tweet_id=None,user=None,text=None,date=None,user_image=None,context=None):
+    def __init__(self, tweet_id=None, user=None, text=None, date=None, user_image=None, context=None):
         self.tweet_id = tweet_id
         self.user = user
         self.text = text
         self.date = date
         self.user_image = user_image
         self.context = context
+
 
 class Usuarios(Base):
     __tablename__ = 'usuarios'
@@ -33,6 +35,7 @@ class Usuarios(Base):
 
     def __repr__(self):
         return '<Usuario %r>' % (self.usuario)
+
 
 class Termos(Base):
     __tablename__ = 'termos'
@@ -62,6 +65,25 @@ class UsuariosCitados(Base):
         return '<Usuario %r>' % (self.usuario)
 
 
+class HashtagsGraph(Base):
+    __tablename__ = "hashtags_graph"
+
+    id = Column(Integer, primary_key=True,autoincrement=True)
+    hashtag = Column(Text, unique=False)
+    frequencia = Column(Integer, unique=False)
+    date = Column(DATETIME)
+    context = Column(Text)
+
+    def __init__(self, hashtag=None, frequencia=None, date=None, context=None):
+        self.hashtag=hashtag
+        self.frequencia=frequencia
+        self.date=date
+        self.context=context
+
+    def __repr__(self):
+        return '<Hashtag %r>' % (self.hashtag)
+
+
 class Hashtags(Base):
     __tablename__ = 'hashtags'
     id = Column(Integer, primary_key=True,autoincrement=True)
@@ -74,6 +96,7 @@ class Hashtags(Base):
 
     def __repr__(self):
         return '<Hashtag %r>' % (self.hashtag)
+
 
 class BigramTrigram(Base):
     __tablename__ = 'bigram_trigram'

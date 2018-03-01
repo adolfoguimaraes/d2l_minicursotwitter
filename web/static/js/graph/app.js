@@ -4,7 +4,7 @@ var margin = {top: 30, right: 20, bottom: 30, left: 50},
     height = 300 - margin.top - margin.bottom;
 
 // Parse the date / time
-var parseDate = d3.time.format("%Y%m%d").parse;
+var parseDate = d3.time.format("%Y-%m-%d").parse;
 
 // Set the ranges
 var x = d3.time.scale().range([0, width]);
@@ -32,20 +32,20 @@ var svg = d3.select("#graph")
               "translate(" + margin.left + "," + margin.top + ")");
 
 // Get the data
-d3.csv("static/js/graph/hashtags.csv", function(error, data) {
-    data.forEach(function(d) {
+d3.json("/graph/", function(error, data) {
+    data['list'].forEach(function(d) {
 		d.date = parseDate(d.date);
 		d.count = +d.count;
     });
 
     // Scale the range of the data
-    x.domain(d3.extent(data, function(d) { return d.date; }));
-    y.domain([0, d3.max(data, function(d) { return d.count; })]);
+    x.domain(d3.extent(data['list'], function(d) { return d.date; }));
+    y.domain([0, d3.max(data['list'], function(d) { return d.count; })]);
 
     // Nest the entries by symbol
     var dataNest = d3.nest()
         .key(function(d) {return d.hashtag;})
-        .entries(data);
+        .entries(data['list']);
 
     var color = d3.scale.category10();  // set the colour scale
 
