@@ -56,5 +56,5 @@ A página a seguir deve ser visualizada:
 
 **O projeto foi criado há 2 anos e estou melhorando algumas coisas. Qualquer dúvida e sugestões é só entrar em contato:**
 
-[adolfo@data2learning.com](mailto:adolfo@data2learning.com) ou [@profadolfoguimaraes](www.instagram.com/profadolfoguimaraes) (instagram) 
+[adolfo@data2learning.com](mailto:adolfo@data2learning.com) ou [@profadolfoguimaraes](http://www.instagram.com/profadolfoguimaraes) (instagram) 
 
